@@ -1,0 +1,30 @@
+.menu{
+  text-align: center;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #289656;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    background-color: #3bc273;
+    color: white;
+}
+
+.ajuste-div{
+    
+}
+.table-adjust{
+    margin-top: 10px;
+}
+
+.panel{
+    background-color: #3bc273;
+}
+
+.menu-adjust{
+    margin-top: -20px;
+}
+
+.img-adjust{
+    max-width: 200px; 
+    max-height: 150px;
+}

@@ -10,12 +10,12 @@ class ClientController extends Controller
     public function index()
     {
         $clients = Client::all();
-        return view('list-clients', compact('clients'));
+        return view('client/list-clients', compact('clients'));
     }
 
     public function create()
     {
-        return view('create-client');
+        return view('client/create-client');
     }
 
     public function store(Request $request)
@@ -32,13 +32,13 @@ class ClientController extends Controller
 
     public function show($id){
         $client = Client::findOrFail($id);
-        return view('list-client-id', compact('client'));
+        return view('client/list-client-id', compact('client'));
     }
 
     public function edit($id)
     {
         $client = Client::findOrFail($id);
-        return view('edit-client', compact('client'));
+        return view('client/edit-client', compact('client'));
     }
 
     public function update(Request $request, $id) {
