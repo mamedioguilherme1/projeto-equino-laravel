@@ -40,7 +40,7 @@
       <p class="list-group-item-text">{{$animal->annotations}}</p>
     </a>
   </div>
-  <form style="display: inline-block;" method="POST" action="{{route('animal.destroy', $animal->id)}}"                                                        
+  <form style="display: inline-block;" method="DELETE" action="{{route('animal.destroy', $animal->id)}}"                                                        
       data-toggle="tooltip" data-placement="top"
       title="Excluir" 
       onsubmit="return confirm('Confirma exclusão?')">
