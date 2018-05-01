@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Cliente - @yield('title')</title>
+  <title>Ciclar - @yield('title')</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
   <link rel="stylesheet" href="<?php echo asset('css/bootstrap.min.css')?>" type="text/css">
@@ -45,8 +45,8 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Animais<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="{{route('client.create')}}">Adicionar Animal</a></li>
-              <li><a href="{{route('client.index')}}">Listar Animais</a></li>
+              <li><a href="{{route('animal.create')}}">Adicionar Animal</a></li>
+              <li><a href="{{route('animal.index')}}">Listar Animais</a></li>
             </ul>
           </li>
         </ul>

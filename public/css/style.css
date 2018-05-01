@@ -28,3 +28,7 @@
     max-width: 200px; 
     max-height: 150px;
 }
+
+#my_form {
+    display: none;
+}

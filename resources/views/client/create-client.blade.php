@@ -11,7 +11,7 @@
 	<div class="row form-row col-md-8 col-xs-12 col-sm-12 col-lg-12 ajuste-div">
 		<h2>Cadastrar Cliente</h2>
 		<form method="post" action="{{route('client.store')}}" enctype="multipart/form-data">
-		{{ csrf_field() }}
+			{{ csrf_field() }}
 			<div class="form-group">
 				<div class="form-group col-md-6">
 					<label class="pull-left">Nome</label>

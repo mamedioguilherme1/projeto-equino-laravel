@@ -1,6 +1,6 @@
 @extends('template.app')
 
-@section('title', 'Adicionar Cliente')
+@section('title', 'Editar Cliente')
 
 @section('sidebar')
     @parent
