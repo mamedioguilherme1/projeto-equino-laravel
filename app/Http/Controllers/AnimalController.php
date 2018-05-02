@@ -11,7 +11,6 @@ class AnimalController extends Controller
     public function index()
     {
         $animals = Animal::all();
-        $clients = Client::all();
         return view('animal/list-animals', compact('animals','clients'));
     }
 

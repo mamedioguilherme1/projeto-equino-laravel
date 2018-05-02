@@ -49,6 +49,13 @@
               <li><a href="{{route('animal.index')}}">Listar Animais</a></li>
             </ul>
           </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Palpações<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{route('palpacao.create')}}">Adicionar Palpacao</a></li>
+              <li><a href="{{route('palpacao.index')}}">Listar Palpações</a></li>
+            </ul>
+          </li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

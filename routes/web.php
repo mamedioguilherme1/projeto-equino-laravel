@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::resource('client', 'ClientController');
 Route::resource('animal', 'AnimalController');
+Route::resource('palpacao', 'PalpacaoController');
