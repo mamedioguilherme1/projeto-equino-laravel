@@ -15,5 +15,10 @@ class Client extends Model
     {
         return $this->hasMany(Animal::class, 'client_id');
     }
+
+    public function palpacoes()
+    {
+        return $this->hasMany(Palpacao::class, 'client_id');
+    }
 }
 
