@@ -14,8 +14,9 @@
 		{{ csrf_field() }}
 			<div class="form-group">
 				<div class="form-group col-md-6">
-					<label class="pull-left">Data da Palpação</label>
-					<input class="form-control" name="date" type="date" placeholder="Nome do Animal">
+					<label class="pull-left">Animal</label>
+					<input class="form-control" value="{{$animal->name}}" type="text" readonly>
+					<input name="animal_id" value="{{$animal->id}}" type="hidden">
 				</div>
 				<div class="form-group col-md-6">
 					<label class="pull-left">Proprietário</label>
@@ -23,9 +24,8 @@
 					<input name="client_id" value="{{$animal->client->id}}" type="hidden">
 				</div>
 				<div class="form-group col-md-6">
-					<label class="pull-left">Animal</label>
-					<input class="form-control" value="{{$animal->name}}" type="text" readonly>
-					<input name="animal_id" value="{{$animal->id}}" type="hidden">
+					<label class="pull-left">Data da Palpação</label>
+					<input class="form-control" name="date" type="date" placeholder="Nome do Animal">
 				</div>
 				<div class="form-group col-md-6">
 					<label class="pull-left">Garanhão</label>
