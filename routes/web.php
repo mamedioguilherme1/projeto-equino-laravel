@@ -17,4 +17,8 @@ Route::get('/', function () {
 
 Route::resource('client', 'ClientController');
 Route::resource('animal', 'AnimalController');
-Route::resource('palpacao', 'PalpacaoController');
+
+Route::get('palpacao', 'PalpacaoController@index')->name('listaPalpacao');
+Route::get('palpacao/create/animal/{id}', 'PalpacaoController@create')->name('addPalpacao');
+Route::post('palpacao/store', 'PalpacaoController@store')->name('storePalpacao');
+Route::get('palpacao/listar/animal/{id}', 'PalpacaoController@show')->name('listarPalpacao');

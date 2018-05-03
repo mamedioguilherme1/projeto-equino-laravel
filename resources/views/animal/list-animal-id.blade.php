@@ -10,6 +10,10 @@
 @section('content')
 <div class="row form-row col-md-8 col-xs-12 col-sm-12 col-lg-12 ajuste-div">
   <h2>{{$animal->name}}</h2>
+  <div class="list-group" align="right">
+    <a href="{{route('addPalpacao', $animal->id)}}" class="btn btn-success" role="button">Criar Palpação</a>
+    <a href="{{route('listarPalpacao', $animal->id)}}" class="btn btn-primary" role="button">Ver Palpações</a>
+  </div>
   <div class="list-group">
     <a href="#" class="list-group-item">
       <h4 class="list-group-item-heading">Dono do Animal</h4>

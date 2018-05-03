@@ -1,6 +1,6 @@
 @extends('template.app')
 
-@section('title', 'Lista Palpações')
+@section('title', 'Listar Palpações')
 
 @section('sidebar')
     @parent
@@ -8,32 +8,35 @@
 @endsection
 
 @section('content')
-<h2>Lista de Palpações</h2>
-<a href="{{route('palpacao.index')}}"><button class="btn btn-success">Adicionar</button></a>
-<div class="table-responsive table-adjust">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Data Palpação</th>
-        <th>Proprietário</th>
-        <th>Animal</th>
-        <th>Observações</th>
-        <th>Garanhão</th>
-      </tr>
-    </thead>
-    @foreach($palpacoes as $palpacao)
-    <tbody>
-      <tr onclick="location.href = '{{route('palpacao.show', $palpacao->id)}}'">
-        <td>{{date('d F Y', strtotime($palpacao->data))}}</td>
-        <td>{{$palpacao->client->name}}</td>
-        <td>{{$palpacao->animal->name}}</td>
-        <td>{{$palpacao->annotations}}</td>
-        <td>{{$palpacao->stallion}}</td>
-      </tr>
-    </tbody>
-    @endforeach
-  </table>
+<div class="row form-row col-md-8 col-xs-12 col-sm-12 col-lg-12 ajuste-div">
+  <h2>{{$animal->name}}</h2>
+  <hr>
+  <div>
+    <label>Proprietário:</label>
+    <h3>{{$animal->client->name}}</h3>
+  </div>
+  <div class="table-responsive table-adjust">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Data Palpação</th>
+          <th>Observações</th>
+          <th>Garanhão</th>
+        </tr>
+      </thead>
+      @foreach($animalP as $anim)
+      <tbody>
+        <tr onclick="location.href = '{{route('animal.show', $animal->id)}}'">
+          <td>{{date('d F Y', strtotime($anim->date))}}</td>
+          <td>{{$anim->annotations}}</td>
+          <td>{{$anim->stallion}}</td>
+        </tr>
+      </tbody>
+      @endforeach
+    </table>
+  </div>
+  <div class="form-group">
+		<a href="{{route('animal.show', $animal->id)}}"><button size="large" type="primary submit" class="btn btn-success">Voltar</button></a>
+	</div>
 </div>
-
-<script>
 @endsection

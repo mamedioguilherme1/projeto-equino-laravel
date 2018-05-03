@@ -17,7 +17,7 @@
 <body>
   @section('sidebar')
   <div class="panel panel-default" align="center">
-    <img src="../img/logo.png" class="img-responsive img-adjust" alt="...">
+    <img src="{{URL::asset('../img/logo.png')}}" class="img-responsive img-adjust">
   </div>
   <nav class="navbar navbar-default menu-adjust">
     <div class="container-fluid">
@@ -52,8 +52,8 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Palpações<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="{{route('palpacao.create')}}">Adicionar Palpacao</a></li>
-              <li><a href="{{route('palpacao.index')}}">Listar Palpações</a></li>
+              <li><a href="">Adicionar Palpacao</a></li>
+              <li><a href="{{route('listaPalpacao')}}">Listar Palpações</a></li>
             </ul>
           </li>
         </ul>

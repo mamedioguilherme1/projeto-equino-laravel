@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Animal;
 use App\Models\Client;
+use App\Models\Palpacao;
 
 class AnimalController extends Controller
 {
@@ -31,13 +32,13 @@ class AnimalController extends Controller
         $animal->annotations = $request->annotations;
         $animal->client_id = $request->client_id;
         $animal->save();
-        return redirect()->route('animal.index')->with('message', 'Cliente Criado!');
+        return redirect()->route('animal.index')->with('message', 'Animal Criado!');
     }
 
     public function show($idA){
         $animal = Animal::findOrFail($idA);
         $client = Animal::find($idA)->client;
-        return view('animal/list-animal-id', compact('animal', 'client'));
+        return view('animal/list-animal-id', compact('animal', 'client','palpacao'));
     }
 
     public function edit($id)
