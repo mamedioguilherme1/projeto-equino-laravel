@@ -38,4 +38,27 @@ class PalpacaoController extends Controller
         $animalP = Animal::find($id)->palpacoes;
         return view('palpacao/list-palpacoes', compact('animal','animalP'));
     }
+
+    public function detalhe($id){
+        $palpacao = Palpacao::findOrFail($id);
+        return view('palpacao/list-palpacao-id', compact('palpacao'));
+    }
+
+    
+    public function edit($id)
+    {   
+        $palpacao = Palpacao::findOrFail($id);
+        return view('palpacao/edit-palpacao', compact('palpacao'));
+    }
+
+    public function update(Request $request, $id) {
+        $palpacao = Palpacao::findOrFail($id);
+        $palpacao->date = $request->date;
+        $palpacao->annotations = $request->annotations;
+        $palpacao->stallion = $request->stallion;
+        $palpacao->client_id = $request->client_id;
+        $palpacao->animal_id = $request->animal_id;
+        $palpacao->save();
+        return redirect()->route('listarPalpacaoId', $palpacao->id)->with('message', 'Editado com sucesso!');
+    }
 }

@@ -10,6 +10,9 @@
 @section('content')
 <div class="row form-row col-md-8 col-xs-12 col-sm-12 col-lg-12 ajuste-div">
   <h2>{{$animal->name}}</h2>
+  <div class="list-group" align="right">
+    <a href="{{route('addPalpacao', $animal->id)}}" class="btn btn-success" role="button">Cadastrar Palpação</a>
+  </div>
   <hr>
   <div>
     <label>Proprietário:</label>
@@ -26,7 +29,7 @@
       </thead>
       @foreach($animalP as $anim)
       <tbody>
-        <tr onclick="location.href = '{{route('animal.show', $animal->id)}}'">
+        <tr onclick="location.href = '{{route('listarPalpacaoId', $anim->id)}}'">
           <td>{{date('d F Y', strtotime($anim->date))}}</td>
           <td>{{$anim->annotations}}</td>
           <td>{{$anim->stallion}}</td>
