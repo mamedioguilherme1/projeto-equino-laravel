@@ -23,16 +23,20 @@
       <thead>
         <tr>
           <th>Data Palpação</th>
-          <th>Observações</th>
-          <th>Garanhão</th>
+          <th>Ovário</th>
+          <th>Edema Utero</th>
+          <th>Injetáveis</th>
+          <th>Procedimento</th>
         </tr>
       </thead>
       @foreach($animalP as $anim)
       <tbody>
-        <tr onclick="location.href = '{{route('listarPalpacaoId', $anim->id)}}'">
-          <td>{{date('d F Y', strtotime($anim->date))}}</td>
-          <td>{{$anim->annotations}}</td>
-          <td>{{$anim->stallion}}</td>
+        <tr onclick="location.href = '{{route('editarPalpacao', $anim->id)}}'">
+          <td>{{date('d/m/Y', strtotime($anim->date))}}</td>
+          <td>{{$anim->ovario}}</td>
+          <td>{{$anim->ut_edema}}</td>
+          <td>{{$anim->injetaveis}}</td>
+          <td>{{$anim->procedimento}}</td>
         </tr>
       </tbody>
       @endforeach

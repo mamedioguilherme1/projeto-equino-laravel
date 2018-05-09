@@ -50,10 +50,10 @@
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Palpações<span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Buscar Informações<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="">Adicionar Palpacao</a></li>
-              <li><a href="{{route('listaPalpacao')}}">Listar Palpações</a></li>
+              <li><a href="{{route('animal.create')}}">Animal</a></li>
+              <li><a href="{{route('animal.index')}}">Cliente</a></li>
             </ul>
           </li>
         </ul>

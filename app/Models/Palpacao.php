@@ -8,8 +8,18 @@ class Palpacao extends Model
 {
     protected $fillable = [
         'date',  
-        'annotations', 
-        'stallion', 
+        'ovario', 
+        'tam_foliculo',
+        'carac_foliculo',
+        'cl_dias',
+        'cl_tipo',
+        'ut_edema',
+        'ut_liquido',
+        'ut_prenhez',
+        'injetaveis',
+        'inj_quantidade',
+        'procedimento',
+        'stallion',
         'client_id', 
         'animal_id'
     ];
