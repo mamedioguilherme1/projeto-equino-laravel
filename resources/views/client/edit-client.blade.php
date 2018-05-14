@@ -33,6 +33,7 @@
 				<div class="form-group col-md-12">
 					<label class="pull-left">Endereço</label>
 					<input class="form-control" value="{{$client->address}}" name="address" type="text" placeholder="Endereço">
+					<input value="{{$client->user_id}}" name="user_id" type="text" readonly>
 				</div>
 				<div class="form-group col-md-12">
 					<button size="large" type="primary submit" class="btn btn-success">Editar</button>

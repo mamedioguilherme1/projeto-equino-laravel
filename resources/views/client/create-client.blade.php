@@ -32,6 +32,7 @@
 				<div class="form-group col-md-12">
 					<label class="pull-left">Endereço</label>
 					<input class="form-control" name="address" type="text" placeholder="Endereço">
+					<input name="user_id" value="{{$user}}" readonly>
 				</div>
 				<div class="form-group col-md-12">
 					<button size="large" type="primary submit" class="btn btn-success">Criar</button>

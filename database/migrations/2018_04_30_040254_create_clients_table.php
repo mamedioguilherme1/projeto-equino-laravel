@@ -20,6 +20,8 @@ class CreateClientsTable extends Migration
             $table->string('cellphone', 20);
             $table->string('cpf', 20);
             $table->string('email', 200);
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

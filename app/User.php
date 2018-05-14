@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Client;
+use App\Models\Animal;
 
 class User extends Authenticatable
 {
@@ -26,4 +28,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function clients()
+    {
+        return $this->hasMany(Client::class, 'user_id');
+    }
+
+    public function animals()
+    {
+        return $this->hasMany(Animal::class, 'user_id');
+    }
 }

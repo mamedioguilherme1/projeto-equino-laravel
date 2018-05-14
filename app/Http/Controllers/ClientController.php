@@ -3,19 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\Models\Client;
+use App\User;
 
 class ClientController extends Controller
 {
     public function index()
     {
-        $clients = Client::all();
+        if($aux = Auth::user()){
+            $user = $aux->id;
+        }
+        $clients = User::find($user)->clients;
         return view('client/list-clients', compact('clients'));
     }
 
     public function create()
     {
-        return view('client/create-client');
+        if($aux = Auth::user()){
+            $user = $aux->id;
+        }
+        return view('client/create-client', compact('user'));
     }
 
     public function store(Request $request)
@@ -26,19 +34,26 @@ class ClientController extends Controller
         $client->cellphone = $request->cellphone;
         $client->cpf = $request->cpf;
         $client->email = $request->email;
+        $client->user_id = $request->user_id;
         $client->save();
         return redirect()->route('client.index')->with('message', 'Cliente Criado!');
     }
 
     public function show($id){
         $client = Client::findOrFail($id);
-        return view('client/list-client-id', compact('client'));
+        if($client->user_id == Auth::user()->id){
+            return view('client/list-client-id', compact('client'));
+        }else
+            return view('error-page');
     }
 
     public function edit($id)
     {
         $client = Client::findOrFail($id);
-        return view('client/edit-client', compact('client'));
+        if($client->user_id == Auth::user()->id){
+            return view('client/edit-client', compact('client'));
+        }else
+            return view('error-page');
     }
 
     public function update(Request $request, $id) {
@@ -48,6 +63,7 @@ class ClientController extends Controller
         $client->cellphone = $request->cellphone;
         $client->cpf = $request->cpf;
         $client->email = $request->email;
+        $client->user_id = $request->user_id;
         $client->save();
         return redirect()->route('client.index')->with('message', 'Editado com sucesso!');
 

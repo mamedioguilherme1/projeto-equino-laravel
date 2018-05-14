@@ -9,7 +9,17 @@
 
 @section('content')
 <h2>Lista de Animais</h2>
-<a href="{{route('animal.create')}}"><button class="btn btn-success">Adicionar</button></a>
+  <div align="right">
+    <a href="{{route('animal.create')}}"><button class="btn btn-success">Adicionar</button></a>
+  </div><br>
+  <form method="get" action="{{route('buscarAnimal')}}" enctype="multipart/form-data">
+    <div class="input-group col-md-4">
+      <input type="text" class="form-control" name="search" placeholder="Nome do Animal...">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="button submit">Buscar</button>
+      </span>
+    </div>
+  </form>
 <div class="table-responsive table-adjust">
   <table class="table">
     <thead>

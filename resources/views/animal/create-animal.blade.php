@@ -46,7 +46,8 @@
 						<label for="comment">Observações:</label>
 						<textarea class="form-control" rows="5" id="comment" name="annotations"></textarea>
 					</div>
-				</div>   
+				</div>
+				<input name="user_id" type="text" value="{{$user}}" readonly>
 				<div class="form-group col-md-12 ">
 					<button size="large" type="primary submit" class="btn btn-success">Criar</button>
 				</div>

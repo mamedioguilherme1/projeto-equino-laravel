@@ -6,19 +6,20 @@ use Illuminate\Http\Request;
 use App\Models\Animal;
 use App\Models\Client;
 use App\Models\Palpacao;
+use Auth;
+use App\User;
 
 class PalpacaoController extends Controller
 {
-    public function index()
-    {
-        $palpacoes = Palpacao::all();
-        return view('palpacao/list-palpacoes', compact('palpacoes'));
-    }
-
+    
     public function create($id)
     {
-        $animal = Animal::find($id);
-        return view('palpacao/create-palpacao', compact('animal'));
+        $animal = Animal::findOrFail($id);
+        $client = Animal::find($id)->client;
+        if($client->user_id == Auth::user()->id){
+            return view('palpacao/create-palpacao', compact('animal'));
+        }else
+            return view('error-page');
     }
 
     public function store(Request $request)
@@ -46,14 +47,23 @@ class PalpacaoController extends Controller
     public function show($id){
         $animal = Animal::findOrFail($id);
         $animalP = Animal::find($id)->palpacoes;
-        return view('palpacao/list-palpacoes', compact('animal','animalP'));
+        $client = Animal::find($id)->client;
+        if($client->user_id == Auth::user()->id){
+            return view('palpacao/list-palpacoes', compact('animal','animalP'));
+        }else
+            return view('error-page');
     }
  
     public function edit($id)
     {   
         $palpacao = Palpacao::findOrFail($id);
         $animal = Palpacao::find($id)->animal;
-        return view('palpacao/edit-palpacao', compact('palpacao', 'animal'));
+        $client = Animal::find($animal->id)->client;
+        if($client->user_id == Auth::user()->id){
+            return view('palpacao/edit-palpacao', compact('palpacao', 'animal'));
+        }else
+            return view('error-page');
+        
     }
 
     public function update(Request $request, $id) {

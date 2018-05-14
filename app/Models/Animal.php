@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Animal extends Model
 {
@@ -13,7 +14,8 @@ class Animal extends Model
         'register', 
         'coat', 
         'annotations', 
-        'client_id'
+        'client_id',
+        'user_id'
     ];
     protected $guarded = ['id', 'created_at', 'update_at'];
     protected $table = 'animals';
@@ -26,6 +28,11 @@ class Animal extends Model
     public function palpacoes()
     {
         return $this->hasMany(Palpacao::class, 'animal_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
 }
